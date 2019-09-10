@@ -1,6 +1,7 @@
 # Import socket module 
 import socket                
 import time  
+import ast
 # Create a socket object 
 s = socket.socket()          
   
@@ -13,7 +14,10 @@ s.connect(('127.0.0.1', port))
 #     pass  
 # receive data from the server 
 while True:
-    print(s.recv(1024).decode("utf-8")) 
+    try:
+        print(ast.literal_eval(s.recv(1024).decode("utf-8"))) 
+    except:
+        pass
     time.sleep(1)
 # close the connection 
 s.close()
