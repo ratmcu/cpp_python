@@ -13,18 +13,11 @@ s.connect(('127.0.0.1', port))
 # while True:
 #     pass  
 # receive data from the server 
-try:
-    while True:
-        st = s.recv(1024)
-        try:
-            dic = ast.literal_eval(st)
-            for key in dic.keys():
-                print(key, dic[key] )
-        except:
-            print('failed to get a dictionary received bytes: \n st')
-        time.sleep(1)
-except KeyboardInterrupt:
-    s.close()
+while True:
+    try:
+        print(ast.literal_eval(s.recv(1024).decode("utf-8"))) 
+    except:
+        pass
+    time.sleep(1)
 # close the connection 
 s.close()
-print('exit')
