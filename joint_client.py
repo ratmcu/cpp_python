@@ -34,7 +34,7 @@ if __name__ == "__main__":
                 dic.append(dictt)	    
             except:
                 print('failed to get a dictionary received bytes: {0}\n'.format(str(st)))
-            if time.time() - startTime > 10:
+            if time.time() - startTime > 60:
                 print('queueing a set of frames')
                 timeString = time.strftime(u"%Y%m%d-%H%M%S")
                 file_name = path + '\\' + 'kinect_frame_' + timeString + '.csv'
